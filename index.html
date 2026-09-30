@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Homeoeconomicus | IISER Tirupati</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+    --green:#063f2d;
+    --green2:#0b5a40;
+    --cream:#f8efcf;
+    --cream2:#fffdf5;
+    --gold:#caa64a;
+    --text:#173d2e;
+    --muted:#6d7b74;
+    --white:#ffffff;
+    --shadow:0 25px 70px rgba(6,63,45,.14);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    color:var(--text);
+    background:var(--cream2);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    padding:100px 0;
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-svg{
+    width:100%;
+    height:100%;
+}
+
+.logo-small{
+    width:58px;
+    height:58px;
+}
+
+.logo-large{
+    width:min(390px,80vw);
+    height:min(390px,80vw);
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:99999;
+    transition:.6s;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-content{
+    text-align:center;
+    color:var(--cream);
+}
+
+.loader-logo{
+    width:130px;
+    height:130px;
+    margin:auto;
+    animation:loaderSpin 3s linear infinite;
+}
+
+.loader-content h2{
+    margin-top:20px;
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+}
+
+@keyframes loaderSpin{
+    from{transform:rotate(0)}
+    to{transform:rotate(360deg)}
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:5000;
+    background:rgba(255,253,245,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(6,63,45,.1);
+}
+
+.nav{
+    height:78px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.brand-logo{
+    width:50px;
+    height:50px;
+}
+
+.brand-name{
+    font-family:"Playfair Display",serif;
+    font-size:18px;
+    font-weight:700;
+    color:var(--green);
+}
+
+.brand-small{
+    display:block;
+    color:#9b792f;
+    font-size:8px;
+    letter-spacing:2px;
+    font-weight:800;
+    margin-top:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+    list-style:none;
+}
+
+.nav-links a{
+    font-size:11px;
+    font-weight:800;
+    color:var(--green);
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-actions{
+    display:flex;
+    gap:8px;
+}
+
+.circle-btn{
+    width:40px;
+    height:40px;
+    border:1px solid rgba(6,63,45,.2);
+    border-radius:50%;
+    background:transparent;
+    color:var(--green);
+    cursor:pointer;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding-top:120px;
+    display:flex;
+    align-items:center;
+    background:
+        radial-gradient(circle at 82% 25%,rgba(202,166,74,.20),transparent 27%),
+        radial-gradient(circle at 5% 90%,rgba(6,63,45,.07),transparent 30%),
+        var(--cream);
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+}
+
+.eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#a17e2c;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2.5px;
+    margin-bottom:18px;
+}
+
+.eyebrow::before{
+    content:"";
+    width:28px;
+    height:2px;
+    background:var(--gold);
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(65px,8vw,108px);
+    line-height:.86;
+    color:var(--green);
+    margin-bottom:28px;
+}
+
+.hero h1 em{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.hero-description{
+    max-width:590px;
+    color:var(--muted);
+    line-height:1.85;
+    font-size:16px;
+    margin-bottom:28px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 21px;
+    border-radius:50px;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-size:12px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--green);
+    color:var(--cream);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 30px rgba(6,63,45,.2);
+}
+
+.btn-outline{
+    border:1px solid var(--green);
+    color:var(--green);
+}
+
+.btn-outline:hover{
+    background:var(--green);
+    color:var(--cream);
+}
+
+.hero-visual{
+    min-height:500px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.logo-ring{
+    width:min(430px,80vw);
+    height:min(430px,80vw);
+    padding:9px;
+    border-radius:50%;
+    background:conic-gradient(
+        var(--green),
+        var(--gold),
+        var(--green2),
+        var(--gold),
+        var(--green)
+    );
+    box-shadow:0 30px 80px rgba(6,63,45,.18);
+}
+
+.logo-ring-inner{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:var(--cream);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.floating-card{
+    position:absolute;
+    background:#fff;
+    padding:13px 16px;
+    border-radius:15px;
+    box-shadow:0 20px 45px rgba(6,63,45,.15);
+    font-size:10px;
+    font-weight:800;
+    color:var(--green);
+}
+
+.float-one{
+    left:0;
+    top:12%;
+}
+
+.float-two{
+    right:0;
+    bottom:14%;
+}
+
+/* =========================
+   TICKER
+========================= */
+
+.ticker{
+    background:var(--green);
+    border-top:2px solid var(--gold);
+    border-bottom:2px solid var(--gold);
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.ticker-track{
+    display:inline-flex;
+    padding:15px 0;
+    animation:ticker 25s linear infinite;
+}
+
+.ticker span{
+    margin:0 25px;
+    color:var(--cream);
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.ticker i{
+    color:var(--gold);
+    margin-right:8px;
+}
+
+@keyframes ticker{
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:white;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:65px;
+    align-items:center;
+}
+
+.about-logo{
+    min-height:450px;
+    background:linear-gradient(145deg,var(--green),var(--green2));
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:35px;
+    box-shadow:var(--shadow);
+}
+
+.about-logo .logo-large{
+    filter:drop-shadow(0 20px 25px rgba(0,0,0,.22));
+}
+
+.about-content h2{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:46px;
+    line-height:1.08;
+    margin-bottom:18px;
+}
+
+.about-content p{
+    color:var(--muted);
+    line-height:1.85;
+    margin-bottom:14px;
+}
+
+.about-points{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:24px;
+}
+
+.about-point{
+    padding:15px;
+    background:var(--cream);
+    border-radius:14px;
+    font-size:11px;
+    font-weight:800;
+}
+
+.about-point i{
+    color:var(--gold);
+    margin-right:8px;
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.section-heading{
+    max-width:720px;
+    margin-bottom:45px;
+}
+
+.center{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.center .eyebrow{
+    justify-content:center;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:clamp(42px,5vw,62px);
+    line-height:1.04;
+    margin-bottom:15px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* =========================
+   AREAS
+========================= */
+
+.areas{
+    background:var(--cream);
+}
+
+.area-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.area-card{
+    padding:28px;
+    border:1px solid rgba(6,63,45,.1);
+    border-radius:22px;
+    background:rgba(255,255,255,.45);
+    transition:.3s;
+}
+
+.area-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.area-icon{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    border-radius:15px;
+    background:var(--green);
+    color:var(--gold);
+    margin-bottom:19px;
+}
+
+.area-card h3{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.area-card p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:13px;
+}
+
+/* =========================
+   DATA
+========================= */
+
+.data-section{
+    background:var(--green);
+    color:var(--cream);
+}
+
+.data-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+    align-items:center;
+}
+
+.data-section h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(42px,5vw,62px);
+    line-height:1.05;
+    margin-bottom:18px;
+}
+
+.data-section p{
+    color:rgba(248,239,207,.7);
+    line-height:1.8;
+}
+
+.chart-box{
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.05);
+    border-radius:25px;
+    padding:25px;
+}
+
+.chart-header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    font-size:12px;
+}
+
+.chart-header span{
+    color:var(--gold);
+    font-weight:800;
+}
+
+.chart{
+    width:100%;
+    height:270px;
+}
+
+/* =========================
+   EVENTS
+========================= */
+
+.events{
+    background:white;
+}
+
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.event-card{
+    overflow:hidden;
+    border-radius:22px;
+    background:var(--cream);
+    border:1px solid rgba(6,63,45,.08);
+    transition:.3s;
+}
+
+.event-card:hover{
+    transform:translateY(-7px);
+    box-shadow:var(--shadow);
+}
+
+.event-image{
+    height:190px;
+    background:linear-gradient(135deg,var(--green),var(--green2));
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+    font-size:48px;
+    position:relative;
+}
+
+.event-tag{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:var(--gold);
+    color:var(--green);
+    border-radius:30px;
+    padding:6px 10px;
+    font-size:8px;
+    font-weight:900;
+}
+
+.event-content{
+    padding:22px;
+}
+
+.event-content h3{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:23px;
+    margin-bottom:8px;
+}
+
+.event-content p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery{
+    background:var(--cream);
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.gallery-item{
+    height:230px;
+    border-radius:20px;
+    background:linear-gradient(145deg,var(--green),var(--green2));
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+    font-size:40px;
+    position:relative;
+    overflow:hidden;
+}
+
+.gallery-item::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.7));
+}
+
+.gallery-caption{
+    position:absolute;
+    bottom:17px;
+    left:18px;
+    z-index:2;
+    color:white;
+    font-size:12px;
+    font-weight:800;
+}
+
+/* =========================
+   INITIATIVES
+========================= */
+
+.initiatives{
+    background:white;
+}
+
+.initiative-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.initiative{
+    display:flex;
+    gap:17px;
+    padding:23px;
+    background:var(--cream);
+    border-radius:20px;
+}
+
+.initiative-icon{
+    flex:none;
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:var(--green);
+    color:var(--gold);
+    display:grid;
+    place-items:center;
+}
+
+.initiative h3{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:21px;
+    margin-bottom:6px;
+}
+
+.initiative p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+/* =========================
+   TEAM
+========================= */
+
+.team{
+    background:var(--cream);
+}
+
+.team-placeholder{
+    min-height:280px;
+    border:2px dashed rgba(6,63,45,.25);
+    border-radius:25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:rgba(255,255,255,.3);
+}
+
+.team-placeholder i{
+    font-size:50px;
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.team-placeholder h3{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+    color:var(--green);
+    margin-bottom:8px;
+}
+
+.team-placeholder p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* =========================
+   DEVELOPER
+========================= */
+
+.developer{
+    background:white;
+}
+
+.developer-card{
+    background:var(--cream);
+    border-radius:28px;
+    padding:38px;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:35px;
+    align-items:center;
+}
+
+.developer-avatar{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:var(--green);
+    color:var(--gold);
+    display:grid;
+    place-items:center;
+    font-family:"Playfair Display",serif;
+    font-size:54px;
+    margin:auto;
+    border:6px solid rgba(202,166,74,.25);
+}
+
+.developer-role{
+    color:#9f7b2c;
+    letter-spacing:2px;
+    font-size:10px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.developer-card h2{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.developer-card p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+.developer-links{
+    display:flex;
+    gap:9px;
+    margin-top:18px;
+    flex-wrap:wrap;
+}
+
+.dev-link{
+    padding:9px 14px;
+    border:1px solid rgba(6,63,45,.2);
+    border-radius:30px;
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    background:var(--green);
+    color:var(--cream);
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.stat{
+    text-align:center;
+    padding:20px;
+    border-right:1px solid rgba(255,255,255,.12);
+}
+
+.stat:last-child{
+    border:none;
+}
+
+.stat-number{
+    color:var(--gold);
+    font-family:"Playfair Display",serif;
+    font-size:50px;
+    font-weight:700;
+}
+
+.stat p{
+    color:rgba(248,239,207,.7);
+    font-size:11px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+    background:white;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:65px;
+    align-items:center;
+}
+
+.contact h2{
+    font-family:"Playfair Display",serif;
+    color:var(--green);
+    font-size:clamp(45px,5vw,65px);
+    line-height:1;
+    margin-bottom:18px;
+}
+
+.contact-description{
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.contact-links{
+    display:grid;
+    gap:10px;
+}
+
+.contact-link{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px;
+    background:var(--cream);
+    border-radius:14px;
+    color:var(--green);
+    font-size:12px;
+    font-weight:800;
+}
+
+.contact-link i{
+    width:22px;
+    color:var(--gold);
+}
+
+.contact-card{
+    min-height:410px;
+    border-radius:30px;
+    background:linear-gradient(145deg,var(--green),var(--green2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--cream);
+    padding:30px;
+}
+
+.contact-card-logo{
+    width:190px;
+    height:190px;
+    margin:auto;
+}
+
+.contact-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:30px;
+    margin-top:15px;
+}
+
+.contact-card p{
+    color:rgba(248,239,207,.7);
+    margin-top:7px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#032d20;
+    color:var(--cream);
+    padding:35px 0;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.footer-logo{
+    width:50px;
+    height:50px;
+}
+
+.footer-name{
+    font-family:"Playfair Display",serif;
+    font-size:17px;
+}
+
+.footer-small{
+    display:block;
+    color:var(--gold);
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+.socials{
+    display:flex;
+    gap:8px;
+}
+
+.socials a{
+    width:40px;
+    height:40px;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    transition:.25s;
+}
+
+.socials a:hover{
+    background:var(--gold);
+    color:var(--green);
+}
+
+.copyright{
+    text-align:center;
+    color:rgba(248,239,207,.45);
+    font-size:10px;
+    margin-top:22px;
+}
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+.top{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--green);
+    cursor:pointer;
+    z-index:2000;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+}
+
+.top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:.8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        position:fixed;
+        top:78px;
+        left:0;
+        width:100%;
+        background:var(--cream2);
+        display:none;
+        flex-direction:column;
+        padding:25px;
+        box-shadow:0 20px 40px rgba(0,0,0,.12);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .data-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content{
+        text-align:center;
+    }
+
+    .hero-content .eyebrow{
+        justify-content:center;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .area-grid,
+    .event-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat:nth-child(2){
+        border:none;
+    }
+}
+
+@media(max-width:650px){
+
+    section{
+        padding:75px 0;
+    }
+
+    .brand-name,
+    .brand-small{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:60px;
+    }
+
+    .hero-visual{
+        min-height:360px;
+    }
+
+    .logo-ring{
+        width:310px;
+        height:310px;
+    }
+
+    .floating-card{
+        font-size:8px;
+    }
+
+    .float-one{
+        left:-5px;
+    }
+
+    .float-two{
+        right:-5px;
+    }
+
+    .area-grid,
+    .event-grid,
+    .gallery-grid,
+    .initiative-grid,
+    .about-points{
+        grid-template-columns:1fr;
+    }
+
+    .developer-card{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .developer-links{
+        justify-content:center;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stat{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.12);
+    }
+
+    .stat:last-child{
+        border-bottom:none;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     INLINE LOGO
+========================= -->
+
+<svg width="0" height="0" style="position:absolute">
+<symbol id="he-logo" viewBox="0 0 500 500">
+
+    <circle cx="250" cy="250" r="239"
+            fill="#063f2d"
+            stroke="#f8efcf"
+            stroke-width="8"/>
+
+    <circle cx="250" cy="250" r="214"
+            fill="none"
+            stroke="#f8efcf"
+            stroke-width="22"
+            stroke-dasharray="6 8"/>
+
+    <circle cx="250" cy="250" r="180"
+            fill="#f8efcf"
+            stroke="#063f2d"
+            stroke-width="5"/>
+
+    <!-- top text -->
+    <path id="topArc"
+          d="M 78 220 A 190 190 0 0 1 422 220"
+          fill="none"/>
+
+    <text fill="#f8efcf"
+          font-family="Georgia,serif"
+          font-size="49"
+          font-weight="bold"
+          letter-spacing="1">
+        <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+            HOMOECONOMICUS
+        </textPath>
+    </text>
+
+    <!-- bottom text -->
+    <path id="bottomArc"
+          d="M 80 315 A 190 190 0 0 0 420 315"
+          fill="none"/>
+
+    <text fill="#f8efcf"
+          font-family="Georgia,serif"
+          font-size="42"
+          font-weight="bold">
+        <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">
+            IISER TIRUPATI
+        </textPath>
+    </text>
+
+    <!-- economic chart -->
+    <g fill="#063f2d" stroke="#063f2d">
+
+        <rect x="210" y="300" width="12" height="55"/>
+        <rect x="235" y="280" width="12" height="75"/>
+        <rect x="260" y="310" width="12" height="45"/>
+        <rect x="285" y="250" width="12" height="105"/>
+        <rect x="310" y="215" width="12" height="140"/>
+
+        <line x1="216" y1="285" x2="216" y2="370" stroke-width="5"/>
+        <line x1="241" y1="265" x2="241" y2="370" stroke-width="5"/>
+        <line x1="266" y1="295" x2="266" y2="370" stroke-width="5"/>
+        <line x1="291" y1="235" x2="291" y2="370" stroke-width="5"/>
+        <line x1="316" y1="195" x2="316" y2="370" stroke-width="5"/>
+
+        <!-- rising arrow -->
+        <polyline
+            points="155,350 180,330 195,290 220,270 240,215 270,230 300,170"
+            fill="none"
+            stroke="#063f2d"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <polygon
+            points="300,170 282,183 306,195"
+            fill="#063f2d"/>
+
+        <!-- pie chart -->
+        <path d="M160 180
+                 A75 75 0 1 1 115 275
+                 L160 180Z"
+              fill="#063f2d"
+              stroke="none"/>
+
+        <path d="M160 180
+                 A75 75 0 0 1 220 205
+                 L160 180Z"
+              fill="#caa64a"
+              stroke="none"
+              opacity=".9"/>
+
+        <circle cx="160" cy="180" r="6" fill="#f8efcf"/>
+
+    </g>
+
+    <!-- decorative dots -->
+    <circle cx="356" cy="170" r="3" fill="#063f2d"/>
+    <circle cx="369" cy="178" r="3" fill="#063f2d"/>
+    <circle cx="381" cy="188" r="3" fill="#063f2d"/>
+    <circle cx="391" cy="200" r="3" fill="#063f2d"/>
+    <circle cx="398" cy="214" r="3" fill="#063f2d"/>
+
+</symbol>
+</svg>
+
+
+<!-- =========================
+     LOADER
+========================= -->
+
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <div class="loader-logo">
+            <svg class="logo-svg">
+                <use href="#he-logo"></use>
+            </svg>
+        </div>
+        <h2>Homeoeconomicus</h2>
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+<div class="container nav">
+
+<a href="#home" class="brand">
+
+<div class="brand-logo">
+<svg class="logo-svg">
+<use href="#he-logo"></use>
+</svg>
+</div>
+
+<div>
+<div class="brand-name">Homeoeconomicus</div>
+<span class="brand-small">IISER TIRUPATI</span>
+</div>
+
+</a>
+
+
+<ul class="nav-links" id="navLinks">
+
+<li><a href="#home">HOME</a></li>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#areas">AREAS</a></li>
+<li><a href="#events">EVENTS</a></li>
+<li><a href="#gallery">GALLERY</a></li>
+<li><a href="#initiatives">INITIATIVES</a></li>
+<li><a href="#team">TEAM</a></li>
+<li><a href="#developer">DEVELOPER</a></li>
+<li><a href="#contact">CONTACT</a></li>
+
+</ul>
+
+
+<div class="nav-actions">
+
+<button class="circle-btn" id="themeBtn">
+<i class="fa-solid fa-moon"></i>
+</button>
+
+<button class="circle-btn menu-btn" id="menuBtn">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div class="hero-content reveal">
+
+<div class="eyebrow">
+IISER TIRUPATI
+</div>
+
+<h1>
+Homo<br>
+<em>economicus.</em>
+</h1>
+
+<p class="hero-description">
+Exploring the world through economics, statistics, data,
+research, behaviour and public policy — one idea at a time.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#about" class="btn btn-primary">
+Explore the Club
+<i class="fa-solid fa-arrow-down"></i>
+</a>
+
+<a
+href="https://www.instagram.com/homoeconomicus.iisert/"
+target="_blank"
+rel="noopener noreferrer"
+class="btn btn-outline">
+
+<i class="fa-brands fa-instagram"></i>
+Instagram
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-visual reveal">
+
+<div class="logo-ring">
+
+<div class="logo-ring-inner">
+
+<svg class="logo-large">
+<use href="#he-logo"></use>
+</svg>
+
+</div>
+
+</div>
+
+
+<div class="floating-card float-one">
+<i class="fa-solid fa-chart-line"></i>
+DATA × ECONOMICS
+</div>
+
+
+<div class="floating-card float-two">
+<i class="fa-solid fa-lightbulb"></i>
+IDEAS × IMPACT
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TICKER
+========================= -->
+
+<div class="ticker">
+
+<div class="ticker-track">
+
+<span><i class="fa-solid fa-chart-line"></i>ECONOMICS</span>
+<span><i class="fa-solid fa-square-poll-vertical"></i>STATISTICS</span>
+<span><i class="fa-solid fa-database"></i>DATA</span>
+<span><i class="fa-solid fa-flask"></i>RESEARCH</span>
+<span><i class="fa-solid fa-landmark"></i>POLICY</span>
+<span><i class="fa-solid fa-coins"></i>FINANCE</span>
+<span><i class="fa-solid fa-brain"></i>BEHAVIOUR</span>
+
+<span><i class="fa-solid fa-chart-line"></i>ECONOMICS</span>
+<span><i class="fa-solid fa-square-poll-vertical"></i>STATISTICS</span>
+<span><i class="fa-solid fa-database"></i>DATA</span>
+<span><i class="fa-solid fa-flask"></i>RESEARCH</span>
+<span><i class="fa-solid fa-landmark"></i>POLICY</span>
+<span><i class="fa-solid fa-coins"></i>FINANCE</span>
+<span><i class="fa-solid fa-brain"></i>BEHAVIOUR</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+<div class="about-logo reveal">
+
+<svg class="logo-large">
+<use href="#he-logo"></use>
+</svg>
+
+</div>
+
+
+<div class="about-content reveal">
+
+<div class="eyebrow">
+ABOUT THE CLUB
+</div>
+
+<h2>
+Thinking beyond
+the textbook.
+</h2>
+
+<p>
+Homeoeconomicus is a student-driven economics and
+interdisciplinary platform at IISER Tirupati.
+</p>
+
+<p>
+We bring together economics, statistics, mathematics,
+data science, research, behavioural science and public
+policy to understand the world around us.
+</p>
+
+
+<div class="about-points">
+
+<div class="about-point">
+<i class="fa-solid fa-chart-simple"></i>
+Data-driven thinking
+</div>
+
+<div class="about-point">
+<i class="fa-solid fa-magnifying-glass-chart"></i>
+Research culture
+</div>
+
+<div class="about-point">
+<i class="fa-solid fa-people-group"></i>
+Student collaboration
+</div>
+
+<div class="about-point">
+<i class="fa-solid fa-globe"></i>
+Real-world impact
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     AREAS
+========================= -->
+
+<section class="areas" id="areas">
+
+<div class="container">
+
+<div class="section-heading center reveal">
+
+<div class="eyebrow">
+WHAT WE EXPLORE
+</div>
+
+<h2>
+Many questions.<br>
+One curiosity.
+</h2>
+
+<p>
+Economics rarely exists in isolation.
+We explore its connections with different disciplines
+and real-world problems.
+</p>
+
+</div>
+
+
+<div class="area-grid">
+
+
+<div class="area-card reveal">
+<div class="area-icon">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+<h3>Economics</h3>
+<p>
+Markets, growth, development, incentives
+and economic decision-making.
+</p>
+</div>
+
+
+<div class="area-card reveal">
+<div class="area-icon">
+<i class="fa-solid fa-square-poll-vertical"></i>
+</div>
+<h3>Statistics</h3>
+<p>
+Probability, uncertainty, inference
+and quantitative reasoning.
+</p>
+</div>
+
+
+<div class="area-card reveal">
+<div class="area-icon">
+<i class="fa-solid fa-database"></i>
+</div>
+<h3>Data & Research</h3>
+<p>
+Real datasets, research methods,
+visualization and analytical thinking.
+</p>
+</div>
+
+
+<div class="area-card reveal">
+<div class="area-icon">
+<i class="fa-solid fa-brain"></i>
+</div>
+<h3>Behaviour</h3>
+<p>
+How individuals and groups make decisions
+under incentives and constraints.
+</p>
+</div>
+
+
+<div class="area-card reveal">
+<div class="area-icon">
+<i class="fa-solid fa-landmark"></i>
+</div>
+<h3>Public Policy</h3>
+<p>
+Policies, institutions and their effects
+on society and economic outcomes.
+</p>
+</div>
+
+
+<div class="area-card reveal">
+<div class="area-icon">
+<i class="fa-solid fa-comments"></i>
+</div>
+<h3>Ideas & Discussions</h3>
+<p>
+Debates and conversations around
+important economic and social questions.
+</p>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DATA
+========================= -->
+
+<section class="data-section">
+
+<div class="container data-grid">
+
+<div class="reveal">
+
+<div class="eyebrow" style="color:#caa64a">
+DATA TELLS STORIES
+</div>
+
+<h2>
+Numbers can reveal
+what words hide.
+</h2>
+
+<p>
+From economic growth to inequality, inflation to employment —
+data gives us another lens through which we can understand society.
+</p>
+
+</div>
+
+
+<div class="chart-box reveal">
+
+<div class="chart-header">
+<strong>Illustrative Economic Trend</strong>
+<span>DATA</span>
+</div>
+
+
+<svg class="chart" viewBox="0 0 700 280" preserveAspectRatio="none">
+
+<line x1="0" y1="50" x2="700" y2="50"
+stroke="rgba(255,255,255,.13)"/>
+
+<line x1="0" y1="120" x2="700" y2="120"
+stroke="rgba(255,255,255,.13)"/>
+
+<line x1="0" y1="190" x2="700" y2="190"
+stroke="rgba(255,255,255,.13)"/>
+
+<polyline
+points="0,225 70,205 140,218 210,170 280,190 350,135 420,150 490,100 560,118 630,72 700,88"
+fill="none"
+stroke="#caa64a"
+stroke-width="5"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+</svg>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     EVENTS
+========================= -->
+
+<section class="events" id="events">
+
+<div class="container">
+
+<div class="section-heading center reveal">
+
+<div class="eyebrow">
+EVENTS & ACTIVITIES
+</div>
+
+<h2>
+Where ideas meet people.
+</h2>
+
+<p>
+Talks, discussions, competitions and workshops
+that make economics come alive.
+</p>
+
+</div>
+
+
+<div class="event-grid">
+
+
+<div class="event-card reveal">
+
+<div class="event-image">
+
+<div class="event-tag">
+UPCOMING
+</div>
+
+<i class="fa-solid fa-microphone"></i>
+
+</div>
+
+<div class="event-content">
+
+<h3>Guest Talks</h3>
+
+<p>
+Conversations with researchers, economists
+and professionals working across different fields.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="event-card reveal">
+
+<div class="event-image">
+
+<div class="event-tag">
+CLUB
+</div>
+
+<i class="fa-solid fa-people-arrows"></i>
+
+</div>
+
+<div class="event-content">
+
+<h3>Econ Discussions</h3>
+
+<p>
+Open discussions around current economic questions
+and interesting ideas.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="event-card reveal">
+
+<div class="event-image">
+
+<div class="event-tag">
+ACTIVITY
+</div>
+
+<i class="fa-solid fa-trophy"></i>
+
+</div>
+
+<div class="event-content">
+
+<h3>Competitions</h3>
+
+<p>
+Challenges designed to test analytical thinking,
+creativity and economic intuition.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<div class="eyebrow">
+GALLERY
+</div>
+
+<h2>
+Moments behind the ideas.
+</h2>
+
+<p>
+Club photographs can be added here later.
+</p>
+
+</div>
+
+
+<div class="gallery-grid">
+
+
+<div class="gallery-item reveal">
+<i class="fa-solid fa-camera"></i>
+<div class="gallery-caption">Club Activities</div>
+</div>
+
+
+<div class="gallery-item reveal">
+<i class="fa-solid fa-users"></i>
+<div class="gallery-caption">Discussions</div>
+</div>
+
+
+<div class="gallery-item reveal">
+<i class="fa-solid fa-microphone"></i>
+<div class="gallery-caption">Talks</div>
+</div>
+
+
+<div class="gallery-item reveal">
+<i class="fa-solid fa-chart-pie"></i>
+<div class="gallery-caption">Data & Research</div>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     INITIATIVES
+========================= -->
+
+<section class="initiatives" id="initiatives">
+
+<div class="container">
+
+<div class="section-heading center reveal">
+
+<div class="eyebrow">
+OUR INITIATIVES
+</div>
+
+<h2>
+Turning curiosity into action.
+</h2>
+
+</div>
+
+
+<div class="initiative-grid">
+
+
+<div class="initiative reveal">
+
+<div class="initiative-icon">
+<i class="fa-solid fa-book-open"></i>
+</div>
+
+<div>
+<h3>Reading & Resources</h3>
+<p>
+Books, papers, articles, datasets and learning resources.
+</p>
+</div>
+
+</div>
+
+
+<div class="initiative reveal">
+
+<div class="initiative-icon">
+<i class="fa-solid fa-chart-column"></i>
+</div>
+
+<div>
+<h3>Data Projects</h3>
+<p>
+Student-led projects using real economic and social datasets.
+</p>
+</div>
+
+</div>
+
+
+<div class="initiative reveal">
+
+<div class="initiative-icon">
+<i class="fa-solid fa-comments"></i>
+</div>
+
+<div>
+<h3>Discussion Series</h3>
+<p>
+A space for students to discuss economics
+and contemporary issues.
+</p>
+</div>
+
+</div>
+
+
+<div class="initiative reveal">
+
+<div class="initiative-icon">
+<i class="fa-solid fa-flask"></i>
+</div>
+
+<div>
+<h3>Research Culture</h3>
+<p>
+Encouraging students to explore research
+questions and analytical methods.
+</p>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TEAM
+========================= -->
+
+<section class="team" id="team">
+
+<div class="container">
+
+<div class="section-heading center reveal">
+
+<div class="eyebrow">
+THE TEAM
+</div>
+
+<h2>
+People behind the ideas.
+</h2>
+
+<p>
+The official team list will be added here when available.
+</p>
+
+</div>
+
+
+<div class="team-placeholder reveal">
+
+<div>
+
+<i class="fa-solid fa-users"></i>
+
+<h3>
+Team information coming soon.
+</h3>
+
+<p>
+Official team members will be added here.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     DEVELOPER
+========================= -->
+
+<section class="developer" id="developer">
+
+<div class="container">
+
+<div class="section-heading center reveal">
+
+<div class="eyebrow">
+ABOUT THE DEVELOPER
+</div>
+
+<h2>
+Built with curiosity & code.
+</h2>
+
+</div>
+
+
+<div class="developer-card reveal">
+
+<div class="developer-avatar">
+SK
+</div>
+
+
+<div>
+
+<div class="developer-role">
+WEBSITE DEVELOPER
+</div>
+
+<h2>
+Shivam Kumar
+</h2>
+
+<p>
+Designed and developed this digital space for
+Homeoeconomicus, bringing together economics,
+research, data and a clean student-focused
+web experience.
+<a href="https://www.instagram.com/imnot_shivmm029/"
+   target="_blank"
+   rel="noopener noreferrer">
+   📸 Follow me on Instagram
+   <span>@imnot_shivmm029</span>
+</a>
+</p>
+
+
+<div class="developer-links">
+
+<a href="https://github.com/"
+target="_blank"
+class="dev-link">
+
+<i class="fa-brands fa-github"></i>
+
+</a>
+
+<a
+href="https://www.instagram.com/homoeconomicus.iisert/"
+target="_blank"
+class="dev-link">
+
+<i class="fa-brands fa-instagram"></i>
+Club Instagram
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+<div class="container stats-grid">
+
+
+<div class="stat reveal">
+
+<div class="stat-number counter"
+data-target="1">
+0
+</div>
+
+<p>Community</p>
+
+</div>
+
+
+<div class="stat reveal">
+
+<div class="stat-number counter"
+data-target="6">
+0
+</div>
+
+<p>Core Areas</p>
+
+</div>
+
+
+<div class="stat reveal">
+
+<div class="stat-number counter"
+data-target="100">
+0
+</div>
+
+<p>Ideas to Explore</p>
+
+</div>
+
+
+<div class="stat reveal">
+
+<div class="stat-number">
+∞
+</div>
+
+<p>Curiosity</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+<div class="container contact-grid">
+
+
+<div class="reveal">
+
+<div class="eyebrow">
+GET CONNECTED
+</div>
+
+<h2>
+Let's talk<br>
+economics.
+</h2>
+
+<p class="contact-description">
+Have an idea, want to collaborate, or simply want
+to join the conversation? Connect with Homeoeconomicus.
+</p>
+
+
+<div class="contact-links">
+
+
+<a
+class="contact-link"
+href="https://www.instagram.com/homoeconomicus.iisert/"
+target="_blank"
+rel="noopener noreferrer">
+
+<i class="fa-brands fa-instagram"></i>
+
+@homoeconomicus.iisert
+
+</a>
+
+
+<a
+class="contact-link"
+href="https://www.iisertirupati.ac.in/"
+target="_blank">
+
+<i class="fa-solid fa-building-columns"></i>
+
+IISER Tirupati
+
+</a>
+
+
+<a
+class="contact-link"
+href="mailto:homoeconomicus@iisertirupati.ac.in">
+
+<i class="fa-solid fa-envelope"></i>
+
+Email the Club
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<div class="contact-card reveal">
+
+<div>
+
+<div class="contact-card-logo">
+
+<svg class="logo-svg">
+<use href="#he-logo"></use>
+</svg>
+
+</div>
+
+<h3>
+Homeoeconomicus
+</h3>
+
+<p>
+Economics • Data • Research • Ideas
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer">
+
+
+<div class="footer-brand">
+
+<div class="footer-logo">
+
+<svg class="logo-svg">
+<use href="#he-logo"></use>
+</svg>
+
+</div>
+
+<div>
+
+<div class="footer-name">
+Homeoeconomicus
+</div>
+
+<span class="footer-small">
+IISER TIRUPATI
+</span>
+
+</div>
+
+</div>
+
+
+<div class="socials">
+
+<a
+href="https://www.instagram.com/homoeconomicus.iisert/"
+target="_blank"
+rel="noopener noreferrer">
+
+<i class="fa-brands fa-instagram"></i>
+
+</a>
+
+
+<a
+href="https://www.iisertirupati.ac.in/"
+target="_blank">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</a>
+
+
+<a href="mailto:homoeconomicus@iisertirupati.ac.in">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+© 2026 Homeoeconomicus · IISER Tirupati
+</div>
+
+</div>
+
+</footer>
+
+
+<button class="top" id="topButton">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+
+<script>
+
+/* =========================
+   LOADER
+========================= */
+
+window.addEventListener("load",function(){
+
+    setTimeout(function(){
+
+        document
+        .getElementById("loader")
+        .classList.add("hide");
+
+    },700);
+
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navLinks =
+document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",function(){
+
+    navLinks.classList.toggle("active");
+
+    const icon =
+    menuBtn.querySelector("i");
+
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-xmark");
+
+});
+
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+        navLinks.classList.remove("active");
+
+        const icon =
+        menuBtn.querySelector("i");
+
+        icon.classList.add("fa-bars");
+        icon.classList.remove("fa-xmark");
+
+    });
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer =
+new IntersectionObserver(
+
+function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+{
+    threshold:.12
+});
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(function(element){
+
+    observer.observe(element);
+
+});
+
+
+/* =========================
+   COUNTERS
+========================= */
+
+let counterStarted=false;
+
+const statsSection =
+document.querySelector(".stats");
+
+const counterObserver =
+new IntersectionObserver(
+
+function(entries){
+
+    if(
+        entries[0].isIntersecting &&
+        !counterStarted
+    ){
+
+        counterStarted=true;
+
+        document
+        .querySelectorAll(".counter")
+        .forEach(function(counter){
+
+            const target =
+            Number(counter.dataset.target);
+
+            let current=0;
+
+            function animate(){
+
+                current +=
+                Math.ceil(target/35);
+
+                if(current>target)
+                    current=target;
+
+                counter.textContent=current;
+
+                if(current<target)
+                    requestAnimationFrame(animate);
+
+            }
+
+            animate();
+
+        });
+
+    }
+
+});
+
+
+counterObserver.observe(statsSection);
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const topButton =
+document.getElementById("topButton");
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY>500){
+
+        topButton.classList.add("show");
+
+    }else{
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+
+topButton.addEventListener("click",function(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+const themeBtn =
+document.getElementById("themeBtn");
+
+let dark=false;
+
+themeBtn.addEventListener("click",function(){
+
+    dark=!dark;
+
+    const icon =
+    themeBtn.querySelector("i");
+
+    if(dark){
+
+        document.documentElement.style.setProperty(
+            "--cream2","#071b14"
+        );
+
+        document.documentElement.style.setProperty(
+            "--cream","#dfe7ca"
+        );
+
+        document.documentElement.style.setProperty(
+            "--text","#edf5e6"
+        );
+
+        document.documentElement.style.setProperty(
+            "--muted","#aab8ae"
+        );
+
+        document.body.style.background="#071b14";
+
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+
+    }else{
+
+        document.documentElement.style.setProperty(
+            "--cream2","#fffdf5"
+        );
+
+        document.documentElement.style.setProperty(
+            "--cream","#f8efcf"
+        );
+
+        document.documentElement.style.setProperty(
+            "--text","#173d2e"
+        );
+
+        document.documentElement.style.setProperty(
+            "--muted","#6d7b74"
+        );
+
+        document.body.style.background="#fffdf5";
+
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
